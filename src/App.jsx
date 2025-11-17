@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Mic, MicOff, Power, Loader2 } from 'lucide-react';
 import { AvaturnHead } from '@avaturn-live/web-sdk';
 
+// URL de l'API - utilise l'URL Render en production, localhost en dev
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://avaturn-escape-game.onrender.com';
+
 function App() {
   const [session, setSession] = useState(null);
   const [isListening, setIsListening] = useState(false);
@@ -35,7 +38,7 @@ function App() {
       }]);
 
       // Envoyer à ChatGPT via l'API
-      const response = await fetch(`/api/session/${session.session_id}/chat`, {
+      const response = await fetch(`${API_BASE_URL}/api/session/${session.session_id}/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -186,7 +189,7 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('/api/session/create', {
+      const response = await fetch(`${API_BASE_URL}/api/session/create`, {
         method: 'POST',
       });
       
@@ -216,7 +219,7 @@ function App() {
         avatarRef.current = null;
       }
       
-      await fetch(`/api/session/${session.session_id}`, {
+      await fetch(`${API_BASE_URL}/api/session/${session.session_id}`, {
         method: 'DELETE',
       });
       setSession(null);
