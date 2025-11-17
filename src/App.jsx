@@ -355,9 +355,9 @@ function App() {
             </div>
           </div>
         ) : (
-          <div className="w-full h-full flex flex-col">
-            {/* Avatar Container - 80% de la fenêtre */}
-            <div className="flex-1 bg-black/80 backdrop-blur-sm border-2 border-red-900/50 shadow-2xl shadow-red-900/50 overflow-hidden flex flex-col">
+          <div className="w-full h-full flex items-center justify-center p-8">
+            {/* Avatar Container - Carré au centre */}
+            <div className="w-full max-w-2xl aspect-square bg-black/80 backdrop-blur-sm border-2 border-red-900/50 shadow-2xl shadow-red-900/50 overflow-hidden flex flex-col">
               <div className="relative flex-1">
                 {/* Header de l'avatar */}
                 <div className="absolute top-0 left-0 right-0 z-20 bg-gradient-to-b from-black/90 to-transparent p-4">
