@@ -269,5 +269,8 @@ app.delete('/api/session/:sessionId', async (req, res) => {
   }
 });
 
-// Export pour Vercel
-export default app;
+// Export pour Vercel - handler pour les serverless functions
+export default (req, res) => {
+  // Permettre à Express de gérer la requête
+  return app(req, res);
+};
