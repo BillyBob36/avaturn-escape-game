@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: avaturn-backend
+    env: node
+    buildCommand: npm install
+    startCommand: node server/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
