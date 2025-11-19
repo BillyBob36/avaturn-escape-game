@@ -3,7 +3,9 @@ import { Mic, MicOff, Power, Loader2 } from 'lucide-react';
 import { AvaturnHead } from '@avaturn-live/web-sdk';
 
 // URL de l'API - utilise l'URL Render en production, localhost en dev
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://avaturn-escape-game.onrender.com';
+const API_BASE_URL = import.meta.env.PROD 
+  ? 'https://avaturn-escape-game.onrender.com' 
+  : (import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001');
 
 function App() {
   const [session, setSession] = useState(null);
